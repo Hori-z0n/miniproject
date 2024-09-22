@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #5a4a99;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            background-color: #5a4a99;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4a3991;
+        }
+        p {
+            margin: 0;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <form action="http://localhost:5000/predict" method="post">
+            <div class="form-group">
+                <p>Please select your Sex:</p>
+                <label><input type="radio" name="sex" value='1' required> Male</label>
+                <label><input type="radio" name="sex" value='0' required> Female</label>
+            </div>
+
+            <div class="form-group">
+                <p>Please select your ChestPainType:</p>
+                <select name="chestpaintyp" required>
+                    <option value='3'>TA: Typical Angina</option>
+                    <option value='1'>ATA: Atypical Angina</option>
+                    <option value='2'>NAP: Non-Anginal Pain</option>
+                    <option value='0'>ASY: Asymptomatic</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>Please select your RestingECG:</p>
+                <select name="restingecg" required>
+                    <option value='1'>Normal</option>
+                    <option value='2'>ST: ST-T wave abnormality</option>
+                    <option value='0'>LVH: Left ventricular hypertrophy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>Please select your Exercise Angina:</p>
+                <label><input type="radio" name="exerciseangina" value='1' required> Yes</label>
+                <label><input type="radio" name="exerciseangina" value='0' required> No</label>
+            </div>
+
+            <div class="form-group">
+                <p>Please select your ST Slope:</p>
+                <select name="st_slope" required>
+                    <option value='2'>Up: upsloping</option>
+                    <option value='1'>Flat: flat</option>
+                    <option value='0'>Down: downsloping</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>Please Enter your Age:</p>
+                <input type="text" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <p>Please Enter your RestingBP:</p>
+                <input type="text" name="restingbp" required>
+            </div>
+
+            <div class="form-group">
+                <p>Please Enter your Cholesterol:</p>
+                <input type="text" name="cholesterol" required>
+            </div>
+
+            <div class="form-group">
+                <p>Please Enter your FastingBS:</p>
+                <input type="text" name="fastingbs" required>
+            </div>
+
+            <div class="form-group">
+                <p>Please Enter your MaxHR:</p>
+                <input type="text" name="maxhr" required>
+            </div>
+
+            <div class="form-group">
+                <p>Please Enter your Oldpeak:</p>
+                <input type="text" name="oldpeak" required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

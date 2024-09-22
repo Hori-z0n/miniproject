@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heart Disease Percent</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #5a4a99;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    input[type="text"], select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+    button {
+        width: 100%;
+        background-color: #5a4a99;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    button:hover {
+        background-color: #4a3991;
+    }
+    p {
+        margin: 0;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+	<h1>Heart disease prediction</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+    <!-- <form action="http://localhost:5000/predict" method="post"> -->
+        <div class="form-group">
+            <p>Please select your Sex:</p>
+            <input type="radio" name="sex" value='1'> Male<br>
+            <input type="radio" name="sex" value='0'> Female<br>
+        </div>
+        
+        
+        <div class="form-group">
+            <p>Please select your ChestPainTyp:</p>
+            <select name="chestpaintyp" id="">
+                <option value='3'>TA: Typical Angina</option>
+                <option value='1'>ATA: Atypical Angina</option>
+                <option value='2'>NAP: Non-Anginal Pain</option>
+                <option value='0'>ASY: Asymptomatic</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <p>Please select your RestingECG</p>
+            <select name="restingecg" id="">
+                <option value='1'>Normal</option>
+                <option value='2'>ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+                <option value='0'>LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <p>Please select your ExerciseAngina</p>
+            <p><input type="radio" name="exerciseangina" value='1'/>Yes</p>
+            <p><input type="radio" name="exerciseangina" value='0'/>No</p>
+        </div>
+        
+        <div class="form-group">
+            <p>Please select your ST_Slope</p>
+            <select name="st_slope" id="">
+                <option value='2'>Up: upsloping</option>
+                <option value='1'>Flat: flat</option>
+                <option value='0'>Down: downsloping</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <p>Please Enter your Age <input type="Text" name="age"/></p>
+        </div>
+
+        <div class="form-group">
+            <p>Please Enter your RestingBP <input type="Text" name="restingbp"/></p>
+        </div>
+
+        <div class="form-group">
+            <p>Please Enter your Cholesterol <input type="Text" name="cholesterol"/></p>
+        </div>
+
+        <div class="form-group">
+            <p>Please Enter your FastingBS <input type="Text" name="fastingbs"/></p>
+        </div>
+
+        <div class="form-group">
+            <p>Please Enter your MaxHR <input type="Text" name="maxhr"/></p>
+        </div>
+
+        <div class="form-group">
+            <p>Please Enter your Oldpeak <input type="Text" name="oldpeak"/></p>
+        </div>
+
+        <button type="submit" value="submit">submit</button>
+        
+    <h4 style="color:black">{{ prediction_text }} </h4>
+    </div>
+</body>
+</html>
